@@ -10,7 +10,7 @@ public class Problem03_RoyalFlush {
         Scanner sc = new Scanner(System.in);
         int n = Integer.parseInt(sc.nextLine());
         StringBuilder cards = new StringBuilder("");
-        String spadesFlush = "10s(\\d*(J|Q|K|A)*[^s])*Js(\\d*(J|Q|K|A)*[^s])*Qs(\\d*(J|Q|K|A)*[^s])*Ks(\\d*(J|Q|K|A)*[^s])*As";
+        String spadesFlush = "10s[^s]*Js[^s]*Qs[^s]*Ks[^s]*As";
 
         Pattern spadesFlushPattern = Pattern.compile(spadesFlush);
         Pattern clubsFlushPattern = Pattern.compile(spadesFlush.replaceAll("s", "c"));

@@ -8,7 +8,7 @@ public class Problem04_RoyalAccounitng {
     static Map<String,Map<String,Payment>> teams = new LinkedHashMap<>();
     static List<String> employees = new ArrayList<>();
     public static void main(String[] args) {
-        Pattern pattern = Pattern.compile("^([a-zA-Z]+);([0-9]+);([0-9]+\\.*([0-9]+)*);([a-zA-Z]+)$");
+        Pattern pattern = Pattern.compile("^([a-zA-Z]+);(-*[0-9]+);(-*[0-9]+(\\.*[0-9]+)*);([a-zA-Z]+)$");
 
         Scanner sc = new Scanner(System.in);
 
@@ -86,7 +86,7 @@ class Payment{
         this.hours = hours;
         BigDecimal paymentPerHour = dailyPayment.divide(BigDecimal.valueOf((double)24),1000,RoundingMode.HALF_UP);
         this.dailyIncome = paymentPerHour.multiply(BigDecimal.valueOf(hours));
-        this.monthlyIncome = dailyIncome.multiply(new BigDecimal("30"));
+        this.monthlyIncome = dailyPayment.multiply(BigDecimal.valueOf(hours)); //unnecessary to calculate for whole month.
     }
 
     public int getHours() {
